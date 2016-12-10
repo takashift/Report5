@@ -6,13 +6,13 @@ public class Main {
         String str = "3．14";
         double value;
         try {
-            value = Double.parseDouble(str);
             str.length();
+            value = Double.parseDouble(str);
         }
         catch( NullPointerException e) {
             System.out.println(" 　　 ∧＿∧\n" +
                     "str→（　´∀｀）＜ ぬるぽ\n");
-            System.out.println("　 （　・∀・）　　　|　|　ｶﾞｯ\n" +
+            System.out.println("　 （　・∀・）　　　|　|　ガッ\n" +
                     "　と　　　　）　 　 |　|\n" +
                     "　　 Ｙ　/ノ　　　 人\n" +
                     "　　　 /　）　 　 < 　>__Λ∩\n" +
