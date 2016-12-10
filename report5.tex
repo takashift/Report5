@@ -10,7 +10,7 @@
 \section{課題説明}
 
 %{\large (改行) ~ } とすれば、文字を大きくする範囲を指定できる。
-
+\large
 残念ながら教科書では例外処理のことを扱っていない。例外が発生するコードとAPIを通して、例外処理に慣れよう。
 
 
@@ -27,7 +27,7 @@ https://github.com/takashift/Report5.git
 　　 ∧＿∧
 str→（　´∀｀）＜ ぬるぽ
 
-　 （　・∀・）　　　|　|　ｶﾞｯ
+　 （　・∀・）　　　|　|　ガッ
 　と　　　　）　 　 |　|
 　　 Ｙ　/ノ　　　 人
 　　　 /　）　 　 < 　>__Λ∩
@@ -35,36 +35,55 @@ str→（　´∀｀）＜ ぬるぽ
 　（＿フ彡　　　　　 　　/
 java.lang.NullPointerException
 	at Main.main(Main.java:8)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(
+	  Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(
-	NativeMethodAccessorImpl.java:62)
+	  NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(
-	DelegatingMethodAccessorImpl.java:43)
+	  DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at com.intellij.rt.execution.application.AppMain.main(
-	AppMain.java:147)
+	  AppMain.java:147)
 
 \end{verbatim}
 \end{shadebox}
 %行間を開ける
-\vspace{10pt}
+\vspace{20pt}
 
 \subsubsection{ステップ3}
+(1)
 
+parseDouble
 
-%\subsubsection*{計算例１}
-\subsubsection{ステップ4}
-\begin{shadebox}
-\begin{verbatim}
-    
-\end{verbatim}
-\end{shadebox}
-%行間を開ける
-\vspace{10pt}
+public static double parseDouble(String s)
+
+　　　　　　throws NumberFormatException
+                            
+Returns a new double initialized to the value represented by the specified String, as performed by the valueOf method of class Double.
+  
+Parameters:
+
+s - the string to be parsed.
+
+Returns:
+
+ the double value represented by the string argument.
+
+Throws:
+
+ NullPointerException - if the string is null
+
+ NumberFormatException - if the string does not contain a parsable double.
+
+\bigskip
+(2)引数をダブル型の変数に変換して返す。ただし、引数がNULLだった場合はNullPointerExceptionになり、変換できない文字列の場合はNumberFormatExceptionとなる。今回はNumberFormatExceptionが出ているので、変換できない文字列であることが分かる。
 
 \subsection{考察}
-最初、Runできず困惑した。mainメソッドの引数のString[] argsが必須であることを知った。
+最初、Runできず困惑した。mainメソッドの引数のString[] argsが必須であることが分かった。
 
+例外処理は今まで一度もしたことが無かったため、どのような目的で使われる機能か全く知らなかった。何もしなければエラーとなった際にその都度エラーメッセージが出てくるが、この処理はもっと具体的なエラーの原因を表示したいときなどに使用するものだと考えられる。
+
+また、通常エラーになると処理が止まってしまい、そこから先の処理はしないで終わってしまう。しかし、エラーなっても続けて処理をさせることがTry-Catch文によって可能になることも分かった。よって、一種の条件分岐のように、エラー時に本来の処理と別の処理を行わせる場合にも利用できると考えられる。
 \bigskip
 
 
